@@ -27,7 +27,6 @@ interface PlaceDetailContract {
 
     void initRepository(Context managedContext);
     Place getPlace( String placeId);
-    //Place getPlace(Context managedContext, String placeId);
   }
 
 }

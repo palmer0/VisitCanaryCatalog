@@ -1,7 +1,6 @@
 package es.ulpgc.eite.master.fullvisitcanary.detail;
 
 import android.annotation.SuppressLint;
-import android.os.AsyncTask;
 import android.util.Log;
 
 import es.ulpgc.eite.master.fullvisitcanary.data.Place;
@@ -35,12 +34,10 @@ public class PlaceDetailPresenter
     super.onPresenterResumed();
     Log.d("VisitCanary.List.Presenter", "onPresenterResumed");
 
-    //setupUI();
-
     model.persistCatalog(false, false, () -> updateUI());
 
     //String placeId = getInStateBundle().getString(PARAM_PLACE_ID);
-    //AsyncTask.execute(() -> setupUI(model.getPlace(placeId)));
+    //AsyncTask.execute(() -> updateUI(model.getPlace(placeId)));
   }
 
 
@@ -60,20 +57,12 @@ public class PlaceDetailPresenter
   private void updateUI() {
     if (isViewAttached()) {
       String placeId = getInStateBundle().getString(PARAM_PLACE_ID);
-      //Place place = model.getPlace( placeId);
-      //getView().setupUI(place);
       getView().setupUI(model.getPlace( placeId));
     }
   }
 
-  private void setupUI(Place place){
+  private void updateUI(Place place){
     if(isViewAttached()) {
-
-      /*
-      String placeId = getInStateBundle().getString(PARAM_PLACE_ID);
-      //Place place = model.getPlace(getView().getManagedContext(), placeId);
-      Place place = model.getPlace( placeId);
-      */
 
       if (place != null) {
         getView().setupUI(place);

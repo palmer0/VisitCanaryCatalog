@@ -1,7 +1,6 @@
 package es.ulpgc.eite.master.fullvisitcanary.list;
 
 import android.annotation.SuppressLint;
-import android.os.AsyncTask;
 import android.util.Log;
 
 import java.util.List;
@@ -37,15 +36,7 @@ public class PlaceListPresenter
     super.onPresenterResumed();
     Log.d("VisitCanary.List.Presenter", "onPresenterResumed");
 
-    /*
-    if (isViewAttached()) {
-      getView().setupUI();
-    }
-    */
-
     model.persistCatalog(false, false, () -> updateUI());
-    //setupUI();
-
     //AsyncTask.execute(() -> updateUI(model.getPlaces()));
   }
 
@@ -63,49 +54,16 @@ public class PlaceListPresenter
     return new PlaceListModel();
   }
 
-//  @SuppressLint("LongLogTag")
-//  public void listReady() {
-//    Log.d("VisitCanary.List.Presenter", "listReady");
-//
-//    /*
-//    if(isViewAttached()) {
-//      //getView().updateUI(model.getPlaces(getView().getManagedContext()));
-//      getView().updateUI(model.getPlaces());
-//    }
-//    */
-//
-//    //model.persistCatalog(false, true, () -> updateUI());
-//  }
 
-
-//  private void setupUI(){
-//    if (isViewAttached()) {
-//      getView().setupUI();
-//    }
-//
-//
-//    /*
-//    if(isViewAttached()) {
-//      //getView().setupUI(model.getPlaces(getView().getManagedContext()));
-//      getView().setupUI(model.getPlaces());
-//    }
-//    */
-//
-//    //model.persistCatalog(false, false, () -> updateUI());
-//  }
-
-
-  /*
   private void updateUI(List<Place> places) {
     if (isViewAttached()) {
       getView().updateUI(places);
     }
   }
-  */
+
 
   private void updateUI() {
     if (isViewAttached()) {
-      //getView().setupUI(model.getPlaces());
       getView().updateUI(model.getPlaces());
     }
   }

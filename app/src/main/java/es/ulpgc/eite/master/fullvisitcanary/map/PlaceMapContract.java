@@ -35,7 +35,6 @@ interface PlaceMapContract {
 
     void initRepository(Context managedContext);
     List<Place> getPlaces();
-    //List<Place> getPlaces(Context managedContext);
   }
 
 }

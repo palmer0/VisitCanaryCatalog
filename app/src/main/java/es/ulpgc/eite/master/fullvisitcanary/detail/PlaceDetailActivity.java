@@ -55,13 +55,6 @@ public class PlaceDetailActivity
             TextView placeDetail = findViewById(R.id.place_detail);
             placeDetail.setText(place.description);
             ImageView placePicture = findViewById(R.id.place_picture);
-
-            /*
-            int resId = getResources().getIdentifier(
-                place.picture, "drawable", getPackageName());
-            placePicture.setImageResource(resId);
-            */
-
             loadImage(placePicture, place.picture);
         }
     }

@@ -16,7 +16,6 @@ import es.ulpgc.mvp.arch.BaseModel;
 public class PlaceMapModel
     extends BaseModel<PlaceMapContract.Presenter> implements PlaceMapContract.Model {
 
-  //private PlaceRepository repository;
   private CatalogRepository repository;
 
 
@@ -28,7 +27,6 @@ public class PlaceMapModel
   }
 
   public void initRepository(Context managedContext) {
-    //repository = PlaceRepository.getInstance(managedContext);
     repository = CatalogRepository.getInstance(managedContext, "visitcanary");
   }
 
@@ -39,16 +37,8 @@ public class PlaceMapModel
     repository.persistCatalog(clearFirst, fromJSON, readyCallback);
   }
 
-  /*
-  public List<Place> getPlaces(Context managedContext) {
-    return PlaceRepository.getInstance(managedContext).getPlaces();
-  }
-  */
-
 
   public List<Place> getPlaces() {
-    //return repository.getPlaces();
-
     List<Place> places = new ArrayList();
 
     List<? extends Category> categories =

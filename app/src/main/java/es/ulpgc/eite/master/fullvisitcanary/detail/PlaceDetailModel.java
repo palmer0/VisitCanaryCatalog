@@ -14,7 +14,6 @@ public class PlaceDetailModel
     extends BaseModel<PlaceDetailContract.Presenter> implements PlaceDetailContract.Model {
 
 
-  //private PlaceRepository repository;
   private CatalogRepository repository;
 
   @Override
@@ -25,7 +24,6 @@ public class PlaceDetailModel
 
 
   public void initRepository(Context managedContext) {
-    //repository = PlaceRepository.getInstance(managedContext);
     repository = CatalogRepository.getInstance(managedContext, "visitcanary");
   }
 
@@ -39,18 +37,10 @@ public class PlaceDetailModel
 
 
   public Place getPlace(String placeId) {
-    //return repository.getPlace(placeId);
-
     Product product = repository.getProduct(placeId);
     return convertProductToPlace(product);
   }
 
-
-  /*
-  public Place getPlace(Context managedContext, String placeId) {
-    return PlaceRepository.getInstance(managedContext).getPlace(placeId);
-  }
-  */
 
   private Place convertProductToPlace(Product product) {
 

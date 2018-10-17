@@ -23,7 +23,6 @@ import es.ulpgc.eite.master.fullvisitcanary.R;
 import es.ulpgc.eite.master.fullvisitcanary.data.Place;
 import es.ulpgc.eite.master.fullvisitcanary.detail.PlaceDetailActivity;
 import es.ulpgc.eite.master.fullvisitcanary.list.PlaceListActivity;
-import es.ulpgc.eite.master.spidercatalog.model.Category;
 import es.ulpgc.mvp.arch.BaseAnnotatedActivity;
 import es.ulpgc.mvp.arch.Viewable;
 

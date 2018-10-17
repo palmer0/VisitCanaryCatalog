@@ -1,8 +1,6 @@
 package es.ulpgc.eite.master.fullvisitcanary.list;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -14,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import es.ulpgc.eite.master.fullvisitcanary.R;
@@ -32,13 +29,12 @@ public class PlaceListActivity
     implements PlaceListContract.View {
 
 
-    //private RecyclerView recyclerView;
-    private PlaceListAdapter recyclerAdapter;
 
     @Override
     protected PlaceListContract.Presenter initPresenter() {
         return new PlaceListPresenter();
     }
+
 
     /*
     @Override
@@ -49,78 +45,22 @@ public class PlaceListActivity
     */
 
 
-    /*
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        presenter.listReady();
-    }
-    */
-
     public Context getManagedContext(){
         return getBaseContext();
     }
 
-    /*
-    public void setupUI() {
-        Log.d("VisitCanary.List.View", "setupUI");
-
-
-        RecyclerView recyclerView = findViewById(R.id.place_list);
-        //recyclerView = findViewById(R.id.place_list);
-        recyclerAdapter = new PlaceListAdapter(new ArrayList());
-        recyclerView.setAdapter(recyclerAdapter);
-
-
-        setupToolbar();
-    }
-    */
 
     public void updateUI(List<Place> places) {
         Log.d("VisitCanary.List.View", "updateUI");
-        Log.d("VisitCanary.List.View", "places: " + places);
 
-        RecyclerView recyclerView = findViewById(R.id.place_list);
-        //recyclerAdapter.setPlaces(places);
-        //runOnUiThread(() -> updateAdapter(places));
-
-
-        runOnUiThread(() -> {
-            setupToolbar();
-            //setupAdapter(places);
-            recyclerView.setAdapter(new PlaceListAdapter(places));
-            //recyclerAdapter.setPlaces(places);
-        });
-    }
-
-//    public void updateAdapter(List<Place> places) {
-//
-//        for(Place place: places) {
-//            recyclerAdapter.addPlace(place);
-//        }
-//
-//        //recyclerAdapter.setPlaces(places);
-//
-//        /*
-//        RecyclerView recyclerView = findViewById(R.id.place_list);
-//        recyclerAdapter = new PlaceListAdapter(places);
-//        recyclerView.setAdapter(recyclerAdapter);
-//        */
-//    }
-
-    /*
-    public void setupUI(List<Place> places) {
         RecyclerView recyclerView = findViewById(R.id.place_list);
 
         runOnUiThread(() -> {
             setupToolbar();
-            //setupAdapter(places);
             recyclerView.setAdapter(new PlaceListAdapter(places));
         });
-
     }
-    */
+
 
     private void setupToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -131,13 +71,6 @@ public class PlaceListActivity
             actionbar.setTitle(getString(R.string.title_place_list));
         }
     }
-
-    /*
-    private void setupAdapter(List<Place> places) {
-        RecyclerView recyclerView = findViewById(R.id.place_list);
-        recyclerView.setAdapter(new PlaceListAdapter(places));
-    }
-    */
 
     public void openDetailActivity() {
         openActivity(PlaceDetailActivity.class);
@@ -153,7 +86,6 @@ public class PlaceListActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.menu_map_button) {
-            //goToPlaceList();
             presenter.menuClicked();
             finish();
         }
@@ -180,15 +112,6 @@ public class PlaceListActivity
             this.places = places;
         }
 
-        public void setPlaces(List<Place> places) {
-            this.places = places;
-            notifyDataSetChanged();
-        }
-
-        public void addPlace(Place place) {
-            places.add(place);
-            notifyDataSetChanged();
-        }
 
         @Override
         public PlaceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

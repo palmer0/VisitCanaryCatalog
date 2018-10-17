@@ -3,6 +3,9 @@ package es.ulpgc.eite.master.fullvisitcanary.map;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import java.util.List;
+
+import es.ulpgc.eite.master.fullvisitcanary.data.Place;
 import es.ulpgc.eite.master.fullvisitcanary.detail.PlaceDetailPresenter;
 import es.ulpgc.mvp.arch.BasePresenter;
 
@@ -56,14 +59,14 @@ public class PlaceMapPresenter
   public void mapReady() {
     Log.d("VisitCanary.Map.Presenter", "mapReady");
 
-    /*
-    if(isViewAttached()) {
-      //getView().updateUI(model.getPlaces(getView().getManagedContext()));
-      getView().updateUI(model.getPlaces());
-    }
-    */
-
     model.persistCatalog(false, false, () -> updateUI());
+    //AsyncTask.execute(() -> updateUI(model.getPlaces()));
+  }
+
+  private void updateUI(List<Place> places) {
+    if (isViewAttached()) {
+      getView().updateUI(places);
+    }
   }
 
   @SuppressLint("LongLogTag")

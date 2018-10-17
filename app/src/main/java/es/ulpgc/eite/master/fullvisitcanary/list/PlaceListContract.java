@@ -13,7 +13,6 @@ interface PlaceListContract {
 
   interface Presenter extends BaseContract.Presenter<View> {
 
-    //void listReady();
     void placeClicked(String placeId);
     void menuClicked();
   }
@@ -21,8 +20,6 @@ interface PlaceListContract {
   interface View extends BaseContract.View {
 
     Context getManagedContext();
-    //void setupUI(List<Place> places);
-    //void setupUI();
     void updateUI(List<Place> places);
     void openDetailActivity();
     void openMapActivity();
@@ -36,7 +33,6 @@ interface PlaceListContract {
 
     void initRepository(Context managedContext);
     List<Place> getPlaces();
-    //List<Place> getPlaces(Context managedContext);
   }
 
 }
