@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.RecyclerView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/place_list"
+    android:name="es.ulpgc.eite.master.visitcanaryislands.PlaceListFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/list_margin"
+    android:layout_marginLeft="@dimen/list_margin"
+    android:layout_marginRight="@dimen/list_margin"
+    app:layoutManager="LinearLayoutManager"
+    tools:context="es.ulpgc.eite.master.fullvisitcanary.list.PlaceListActivity"
+    tools:listitem="@layout/place_list_content" />

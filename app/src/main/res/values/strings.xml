@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Visit Canary</string>
+    <string name="title_place_map">Map of Places to Visit in Canary</string>
+    <string name="title_place_list">List of Places to Visit in Canary</string>
+    <string name="title_place_detail">Place to Visit in Canary</string>
+</resources>
