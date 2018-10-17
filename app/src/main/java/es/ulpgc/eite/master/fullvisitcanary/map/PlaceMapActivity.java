@@ -76,7 +76,6 @@ public class PlaceMapActivity
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        //googleMap.setOnMarkerClickListener(MainMapActivity.this);
         googleMap.setOnInfoWindowClickListener(PlaceMapActivity.this);
 
         this.googleMap = googleMap;
